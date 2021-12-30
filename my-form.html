@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" id="form1">
+        <input id = "picktext" name="text" onChange="changeText()">
+        <input id="picknumber" name="Number" onChange="changeNumber()">
+        <input type="submit">
+        <div id = "processed">{{ processed_text }}</div>
+        <div id = "numeric value">{{ value }}</div>
+        <p id="log"></p> 
+        <p id="log2"></p> 
+
+    </form>
+</body>
+</html>
+<script>
+
+    // //Show value when change number  in number input
+    // var numeric_val = null;
+    // function changeNumber(){
+    //     var numeric_val = document.getElementById('picknumber').value;
+    //     console.log(numeric_val)
+    // }
+    // changeNumber()
+
+    // //Show value when change text in text input
+    // var text_val = null;
+    // function changeText(){
+    //     var text_val = document.getElementById('picktext').value;
+    //     console.log(text_val)
+    // }
+    // changeText()
+
+    // // Log what is currently available in the html
+    // function myFunction() {
+    //     var1 = document.getElementById("processed").innerText
+    //     console.log(var1)
+    //     var2 = document.getElementById("numeric value").innerText
+    //     console.log(var2)
+    //     var integer = parseInt(var2, 10);
+
+    //     if(integer > 10 ){
+    //         document.getElementById("numeric value").style.color = "lightred";
+    //     }else{
+    //         document.getElementById("numeric value").style.color = "lightgreen";
+
+    //     }
+    // }
+    // myFunction()
+
+    const form1 = document.getElementById('form1');
+    const log = document.getElementById('log');
+    const log2 = document.getElementById('log2');
+
+    function logSubmit(event) {
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
+        log.textContent = `Form Submitted! Congrats! The timestamp is: ${event.timeStamp}`;
+        log2.textContent2 = `Form Submitted! Congrats! The date is: ${dateTime}`;
+        event.preventDefault();    
+    }
+
+    form1.addEventListener('submit',logSubmit)
+
+
+</script>
